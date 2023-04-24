@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "565312306394",
+    "project_id": "vehicle-onwer",
+    "storage_bucket": "vehicle-onwer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565312306394:android:5dbdf7c6f97c0d8f22f9e3",
+        "android_client_info": {
+          "package_name": "com.example.onwer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565312306394-6l541sdaee5bte2dtddde8ruqfnhnp9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg7dlf_X_XIr1XyKu6h1CSNxJcLH0RtWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565312306394-6l541sdaee5bte2dtddde8ruqfnhnp9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
