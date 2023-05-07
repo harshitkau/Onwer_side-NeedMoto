@@ -3,7 +3,7 @@ import 'package:onwer/model/user.dart';
 
 class VehicleDetails {
   String vehicle_name;
-  // String vehicle_company;
+  String vehicle_company;
   String vehicle_number;
   String vehicle_model;
   String current_reading;
@@ -16,7 +16,7 @@ class VehicleDetails {
 
   VehicleDetails({
     required this.vehicle_name,
-    // required this.vehicle_company,
+    required this.vehicle_company,
     required this.vehicle_number,
     required this.vehicle_model,
     required this.current_reading,
@@ -31,7 +31,7 @@ class VehicleDetails {
   //App - Firebase(Map)
   Map<String, dynamic> toJson() => {
         "vehicle_name": vehicle_name,
-        // "vehicle_company": vehicle_company,
+        "vehicle_company": vehicle_company,
         "vehicle_number": vehicle_number,
         "vehicle_model": vehicle_model,
         "current_reading": current_reading,
@@ -48,7 +48,7 @@ class VehicleDetails {
     var snapshot = snap.data() as Map<String, dynamic>;
     return VehicleDetails(
       vehicle_name: snapshot["vehicle_name"],
-      // vehicle_company: snapshot['vehicle_company'],
+      vehicle_company: snapshot['vehicle_company'],
       vehicle_number: snapshot['vehicle_number'],
       vehicle_model: snapshot['vehicle_model'],
       current_reading: snapshot['current_reading'],

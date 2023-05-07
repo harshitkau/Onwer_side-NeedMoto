@@ -12,6 +12,7 @@ class TextInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      // focusNode: FocusScope.of(context).requestFocus(myFocusNode),
       controller: controller,
       decoration: InputDecoration(
         labelText: myLabelText,

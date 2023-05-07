@@ -8,7 +8,7 @@ class VehicleDetailsController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   void details(
     String vehicle_name,
-    // String vehicle_company,
+    String vehicle_company,
     String vehicle_number,
     String vehicle_model,
     String current_reading,
@@ -21,7 +21,7 @@ class VehicleDetailsController extends GetxController {
   ) async {
     try {
       if (vehicle_name.isNotEmpty &&
-          // vehicle_company.isNotEmpty &&
+          vehicle_company.isNotEmpty &&
           vehicle_number.isNotEmpty &&
           vehicle_model.isNotEmpty &&
           current_reading.isNotEmpty &&
@@ -35,7 +35,7 @@ class VehicleDetailsController extends GetxController {
         final User? current_user = _auth.currentUser;
         VehicleDetails user_vehicleDetails = VehicleDetails(
           vehicle_name: vehicle_name,
-          // vehicle_company: vehicle_company,
+          vehicle_company: vehicle_company,
           vehicle_number: vehicle_number,
           vehicle_model: vehicle_model,
           current_reading: current_reading,

@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:onwer/object/bottomNavigationBar.dart';
-import 'package:onwer/object/rush_wheel_card.dart';
-import 'package:onwer/screen/add_vehicle.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
-import 'nav_drawer.dart';
+import '../../object/bottomNavigationBar.dart';
+import '../nav_drawer.dart';
 
-class OwnerHome extends StatefulWidget {
-  OwnerHome({super.key, required this.name, required this.phoneNumber});
-  String name;
-  String phoneNumber;
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
-  @override
-  State<OwnerHome> createState() => _OwnerHomeState();
-}
-
-class _OwnerHomeState extends State<OwnerHome> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromRGBO(159, 108, 255, 1),
+        backgroundColor: Color.fromARGB(198, 29, 6, 157),
         actions: [
           IconButton(
             icon: Icon(
@@ -38,9 +30,9 @@ class _OwnerHomeState extends State<OwnerHome> {
         child: Column(
           children: [
             Container(
-              height: _size.height * 0.4,
+              height: _size.height * 0.35,
               width: _size.width,
-              color: Color.fromRGBO(159, 108, 255, 1),
+              color: Color.fromARGB(198, 29, 6, 157),
               child: Column(
                 children: [
                   SizedBox(height: 20),
@@ -72,14 +64,14 @@ class _OwnerHomeState extends State<OwnerHome> {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    widget.name,
+                    "Harshit Kaushal",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
                   Text(
-                    "+91 ${widget.phoneNumber}",
+                    "+91 8726558201",
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -89,18 +81,17 @@ class _OwnerHomeState extends State<OwnerHome> {
               ),
             ),
             SizedBox(height: 25),
-            Text("Welcome to Rush Wheels",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                )),
-            SizedBox(height: 30),
-            // addVehicle(context),
-            RushWheel(),
-            SizedBox(height: 25),
-            RushWheel(),
-            SizedBox(height: 25),
-            _addButton(context)
+            _textfeild(Icon(Icons.person_2_outlined), "Rush Wheel", context),
+            _textfeild(Icon(Icons.call_outlined), "9157896545", context),
+            _textfeild(
+                Icon(Icons.mail_outline), "selfdrive@gmail.com", context),
+            _textfeild(Icon(Icons.date_range_outlined), "10-05-1991", context),
+            _textfeild(Icon(Icons.location_history),
+                "6-36/1, Road No. 7 Boduppal,...", context),
+            _textfeild(Icon(Icons.pin_drop_outlined), "500092", context),
+            SizedBox(height: 15),
+            _updateButton(context),
+            SizedBox(height: 15),
           ],
         ),
       ),
@@ -108,29 +99,28 @@ class _OwnerHomeState extends State<OwnerHome> {
     );
   }
 
-  Widget addVehicle(BuildContext context) {
+  Widget _textfeild(Icon iconData, String data, BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 50, left: 30, right: 30),
-      height: MediaQuery.of(context).size.height * 0.3,
-      width: MediaQuery.of(context).size.width * 0.9,
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      height: MediaQuery.of(context).size.height * 0.07,
       decoration: BoxDecoration(
-          color: Color.fromRGBO(212, 235, 255, 1),
-          // color: Colors.green[500],
-          borderRadius: BorderRadius.circular(20)),
-      child: Column(children: [
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: Color.fromARGB(95, 0, 0, 0))),
+      child: Row(children: [
+        Icon(iconData.icon),
+        SizedBox(width: 10),
         Text(
-          "Get money by adding your vehicle to rush wheels and give for rent 1 day to so many days",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 20, color: Colors.black, fontWeight: FontWeight.w500),
-        ),
+          data,
+          style: TextStyle(fontSize: 20),
+        )
       ]),
     );
   }
 
-  Widget _addButton(BuildContext context) {
+  Widget _updateButton(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.45,
+      width: MediaQuery.of(context).size.width * 0.8,
       height: 50,
       child: ElevatedButton(
         style: ButtonStyle(
@@ -138,14 +128,15 @@ class _OwnerHomeState extends State<OwnerHome> {
               RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40),
           )),
-          backgroundColor: MaterialStateProperty.all(Colors.orange[600]),
+          backgroundColor:
+              MaterialStateProperty.all(Color.fromARGB(198, 29, 6, 157)),
         ),
         onPressed: () {
-          Get.offAll(() => AddVehicle());
+          // Get.offAll(() => AddVehicle());
         },
         child: Center(
           child: Text(
-            "Add Vehicle",
+            "Update",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
             textAlign: TextAlign.center,
           ),

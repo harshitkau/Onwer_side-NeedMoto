@@ -1,6 +1,10 @@
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:onwer/controller/vehicle_details_controller.dart';
 
+import '../controller/dropdown_controller.dart';
 import '../object/dropDownButtons/companydrop.dart';
 import '../object/dropDownButtons/fueldrop.dart';
 import '../object/dropDownButtons/ownTax.dart';
@@ -14,6 +18,7 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  final List<String> sugars = ['0', '1', '2', '3', '4'];
   int _challansValue = 0;
 
   int _insurenceValue = 0;
@@ -24,18 +29,43 @@ class _DetailsPageState extends State<DetailsPage> {
 
   @override
   Widget build(BuildContext context) {
+    DropdownController controller = DropdownController();
+
     TextEditingController _vehicalnameController = TextEditingController();
     TextEditingController _numberController = TextEditingController();
     TextEditingController _modelController = TextEditingController();
     TextEditingController _currentReadingController = TextEditingController();
     TextEditingController _rcNumberController = TextEditingController();
     TextEditingController _vehicleLocation = TextEditingController();
+    String? _currentSugars;
+
     return Column(children: [
       TextInputField(
           controller: _vehicalnameController, myLabelText: "Vehical Name"),
       const SizedBox(height: 20),
       //
       DropField(),
+      // Container(
+      //   padding: EdgeInsets.all(20),
+      //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      //   child: DropdownSearch(
+      //     popupProps: PopupProps.menu(
+      //       constraints: BoxConstraints(maxHeight: 200),
+      //     ),
+      //     items: controller.options,
+      //     dropdownDecoratorProps: DropDownDecoratorProps(
+      //         dropdownSearchDecoration: InputDecoration(
+      //       border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+      //       labelText: 'Seats',
+      //     )),
+      //     onChanged: (value) {
+      //       setState(() {
+      //         controller.setValue(value!);
+      //       });
+      //     },
+      //     selectedItem: controller.selectedVal,
+      //   ),
+      // ),
 
       //
       const SizedBox(height: 20),
@@ -55,14 +85,14 @@ class _DetailsPageState extends State<DetailsPage> {
       //
       TextInputField(controller: _rcNumberController, myLabelText: "RC Number"),
       //
-      const SizedBox(height: 20),
-      //
-      FuelDropField(),
-      //
-      const SizedBox(height: 20),
-      OwnTaxDropField(),
-      //
-      const SizedBox(height: 10),
+      // const SizedBox(height: 20),
+      // //
+      // FuelDropField(),
+      // //
+      // const SizedBox(height: 20),
+      // OwnTaxDropField(),
+      // //
+      // const SizedBox(height: 10),
       //
       _Challans_Insurence(),
       SizedBox(height: 10),
@@ -76,6 +106,34 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
       ),
       SizedBox(height: 20),
+      ElevatedButton(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+          )),
+          backgroundColor:
+              MaterialStateProperty.all(Color.fromARGB(255, 15, 94, 159)),
+        ),
+        onPressed: () {
+          VehicleDetailsController.instance.details(
+            _vehicalnameController.text,
+            controller.selectedVal.toString(),
+            _numberController.text,
+            _modelController.text,
+            _currentReadingController.text,
+            _rcNumberController.text,
+            _vehicleLocation.text,
+          );
+        },
+        child: Center(
+          child: Text(
+            "Next",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
     ]);
   }
 

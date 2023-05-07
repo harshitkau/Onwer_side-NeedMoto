@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onwer/object/test.dart';
 import 'package:onwer/screen/onwer_home.dart';
 import 'package:onwer/screen/login.dart';
 
@@ -30,6 +31,7 @@ class AuthController extends GetxController {
             name: 'Harshit Kaushal',
             phoneNumber: '8726558201',
           ));
+      // Get.offAll(Test());
     }
   }
 

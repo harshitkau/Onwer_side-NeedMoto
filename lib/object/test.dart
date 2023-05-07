@@ -1,151 +1,96 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, curly_braces_in_flow_control_structures
+
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
-import 'package:onwer/object/textfield.dart';
 
-import 'dropDownButtons/companydrop.dart';
-import 'dropDownButtons/fueldrop.dart';
-import 'dropDownButtons/ownTax.dart';
+class Test extends StatelessWidget {
+  static const customSwatch = MaterialColor(
+    0xFFFF5252,
+    <int, Color>{
+      50: Color(0xFFFFEBEE),
+      100: Color(0xFFFFCDD2),
+      200: Color(0xFFEF9A9A),
+      300: Color(0xFFE57373),
+      400: Color(0xFFEF5350),
+      500: Color(0xFFFF5252),
+      600: Color(0xFFE53935),
+      700: Color(0xFFD32F2F),
+      800: Color(0xFFC62828),
+      900: Color(0xFFB71C1C),
+    },
+  );
 
-class Demo extends StatefulWidget {
-  @override
-  _DemoState createState() => _DemoState();
-}
-
-class _DemoState extends State<Demo> {
-  int _challansValue = 0;
-  int _insurenceValue = 0;
-  bool checkfield = false;
-  StepperType stepperType = StepperType.vertical;
+  const Test({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _vehicalnameController = TextEditingController();
-    TextEditingController _numberController = TextEditingController();
-    TextEditingController _modelController = TextEditingController();
-    TextEditingController _currentReadingController = TextEditingController();
-    TextEditingController _rcNumberController = TextEditingController();
-    TextEditingController _vehicleLocation = TextEditingController();
-    return Column(children: [
-      TextInputField(
-          controller: _vehicalnameController, myLabelText: "Vehical Name"),
-      SizedBox(height: 20),
-      DropField(),
-      SizedBox(height: 20),
-      TextInputField(controller: _numberController, myLabelText: "Number"),
-      SizedBox(height: 20),
-      TextInputField(controller: _modelController, myLabelText: "Model"),
-      SizedBox(height: 20),
-      TextInputField(
-          controller: _currentReadingController,
-          myLabelText: "Current Reading"),
-      SizedBox(height: 20),
-      TextInputField(controller: _rcNumberController, myLabelText: "RC Number"),
-      SizedBox(height: 20),
-      FuelDropField(),
-      SizedBox(height: 20),
-      OwnTaxDropField(),
-      SizedBox(height: 10),
-      _Challans_Insurence(),
-      SizedBox(height: 10),
-      TextInputField(
-          controller: _vehicleLocation, myLabelText: "Vehicle Location"),
-      const Padding(
-        padding: const EdgeInsets.only(left: 170, top: 2),
-        child: Text(
-          "Same as home address",
-          style: TextStyle(color: Colors.red),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: customSwatch,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Dropdown Search"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            DropdownSearch(
+              // key: Key.DIALOG,
+              items: ["Brazil", "France", "Tunisia", "Canada"],
+              // dropdownSearchDecoration: InputDecoration(labelText: "Name"),
+              onChanged: print,
+              selectedItem: "Select Car",
+              validator: (String? item) {
+                if (item == null)
+                  return "Required field";
+                else if (item == "Brazil")
+                  return "Invalid item";
+                else
+                  return null;
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
         ),
       ),
-      SizedBox(height: 20),
-    ]);
+    );
   }
 
-  Widget _Challans_Insurence() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Column(
-          children: [
-            Text(
-              "Pending Challans",
-              style: TextStyle(color: Colors.black54),
-            ),
-            Row(
-              children: [
-                Row(
-                  children: [
-                    Radio(
-                        value: 1,
-                        groupValue: _challansValue,
-                        onChanged: (value) {
-                          setState(() {
-                            _challansValue = value!;
-                          });
-                        }),
-                    Text(
-                      "Yes",
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Radio(
-                        value: 2,
-                        groupValue: _challansValue,
-                        onChanged: (value) {
-                          setState(() {
-                            _challansValue = value!;
-                          });
-                        }),
-                    Text(
-                      "No",
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            Text(
-              "Have Insurence for Vehicle",
-              style: TextStyle(color: Colors.black54),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Radio(
-                        value: 1,
-                        groupValue: _insurenceValue,
-                        onChanged: (value) {
-                          setState(() {
-                            _insurenceValue = value!;
-                          });
-                        }),
-                    Text("Yes"),
-                  ],
-                ),
-                SizedBox(width: 30),
-                Row(
-                  children: [
-                    Radio(
-                        value: 2,
-                        groupValue: _insurenceValue,
-                        onChanged: (value) {
-                          setState(() {
-                            _insurenceValue = value!;
-                          });
-                        }),
-                    Text("No"),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ]),
-    );
+  bool isItemDisabled(String s) {
+    //return s.startsWith('I');
+
+    if (s.startsWith('I')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void itemSelectionChanged(String? s) {
+    print(s);
   }
 }

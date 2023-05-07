@@ -68,7 +68,7 @@ class _AddVehicleState extends State<AddVehicle> {
                   content: Column(
                     children: [
                       DetailsPage(),
-                      NextButton(0),
+                      // NextButton(0),
                     ],
                   ),
                   isActive: _currentStep > 0,
