@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+
+import '../onwer_home.dart';
 
 class Item {
   String title;
@@ -88,31 +91,14 @@ class HandoverVehicle extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Colors.black45),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.orange[700],
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.orange[700],
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.orange[700],
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.orange[700],
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey[700],
-                      ),
-                    ],
-                  ),
+                  RatingBarIndicator(
+                      rating: 2.5,
+                      itemCount: 5,
+                      itemSize: 25.0,
+                      itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.orange,
+                          )),
                   SizedBox(height: 10),
                   Divider(
                     endIndent: 20,
@@ -350,7 +336,8 @@ class HandoverVehicle extends StatelessWidget {
           CupertinoDialogAction(
             child: Text("OK"),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => OwnerHome()));
             },
           ),
         ],

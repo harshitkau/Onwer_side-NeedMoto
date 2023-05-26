@@ -9,6 +9,7 @@ import '../object/dropDownButtons/companydrop.dart';
 import '../object/dropDownButtons/fueldrop.dart';
 import '../object/dropDownButtons/ownTax.dart';
 import '../object/textfield.dart';
+import 'own_file_upload.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -106,34 +107,36 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
       ),
       SizedBox(height: 20),
-      ElevatedButton(
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40),
-          )),
-          backgroundColor:
-              MaterialStateProperty.all(Color.fromARGB(255, 15, 94, 159)),
-        ),
-        onPressed: () {
-          VehicleDetailsController.instance.details(
-            _vehicalnameController.text,
-            controller.selectedVal.toString(),
-            _numberController.text,
-            _modelController.text,
-            _currentReadingController.text,
-            _rcNumberController.text,
-            _vehicleLocation.text,
-          );
-        },
-        child: Center(
-          child: Text(
-            "Next",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
+      // ElevatedButton(
+      //   style: ButtonStyle(
+      //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      //         RoundedRectangleBorder(
+      //       borderRadius: BorderRadius.circular(40),
+      //     )),
+      //     backgroundColor:
+      //         MaterialStateProperty.all(Color.fromARGB(255, 15, 94, 159)),
+      //   ),
+      //   onPressed: () {
+      //     // VehicleDetailsController.instance.details(
+      //     //   _vehicalnameController.text,
+      //     //   controller.selectedVal.toString(),
+      //     //   _numberController.text,
+      //     //   _modelController.text,
+      //     //   _currentReadingController.text,
+      //     //   _rcNumberController.text,
+      //     //   _vehicleLocation.text,
+      //     // );
+      //     // Navigator.push(context,
+      //     //     MaterialPageRoute(builder: (context) => OwnFileUpload()));
+      //   },
+      //   child: Center(
+      //     child: Text(
+      //       "Next",
+      //       style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+      //       textAlign: TextAlign.center,
+      //     ),
+      //   ),
+      // ),
     ]);
   }
 

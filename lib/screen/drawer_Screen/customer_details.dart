@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'customer_Accept.dart';
 
@@ -62,16 +63,14 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
                         color: Colors.black45)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.star, color: Colors.orange),
-                    Icon(Icons.star, color: Colors.orange),
-                    Icon(Icons.star, color: Colors.orange),
-                    Icon(Icons.star, color: Colors.orange),
-                    Icon(Icons.star),
-                  ],
-                ),
+                RatingBarIndicator(
+                    rating: 4,
+                    itemCount: 5,
+                    itemSize: 30.0,
+                    itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                        ))
               ]),
             ),
             Container(
@@ -321,8 +320,28 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
+                  SizedBox(height: 10),
+                  Center(
+                    child: RatingBar(
+                      initialRating: 0,
+                      minRating: 0,
+                      maxRating: 5,
+                      allowHalfRating: true,
+                      itemSize: 30.0,
+                      ratingWidget: RatingWidget(
+                        full: const Icon(Icons.star, color: Colors.orange),
+                        half: const Icon(Icons.star_half, color: Colors.orange),
+                        empty:
+                            const Icon(Icons.star_border, color: Colors.grey),
+                      ),
+                      onRatingUpdate: (rating) {
+                        // Rating is updated
+                        print('rating update to: $rating');
+                      },
+                    ),
+                  ),
                   SizedBox(
-                    height: 50,
+                    height: 40,
                   ),
                   TextField(
                     controller: _feedbackController,

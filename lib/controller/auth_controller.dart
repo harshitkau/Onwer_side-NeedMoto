@@ -27,10 +27,7 @@ class AuthController extends GetxController {
     if (user == null) {
       Get.offAll(() => LoginScreen());
     } else {
-      Get.offAll(() => OwnerHome(
-            name: 'Harshit Kaushal',
-            phoneNumber: '8726558201',
-          ));
+      Get.offAll(() => OwnerHome());
       // Get.offAll(Test());
     }
   }

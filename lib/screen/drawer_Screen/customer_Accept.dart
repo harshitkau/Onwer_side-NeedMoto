@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:onwer/object/bottomNavigationBar.dart';
 
 import 'cancel_request.dart';
@@ -329,16 +330,14 @@ class _CustomerAcceptState extends State<CustomerAccept> {
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
                             color: Colors.black45)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.star, color: Colors.orange),
-                        Icon(Icons.star, color: Colors.orange),
-                        Icon(Icons.star, color: Colors.orange),
-                        Icon(Icons.star, color: Colors.orange),
-                        Icon(Icons.star),
-                      ],
-                    ),
+                    RatingBarIndicator(
+                        rating: 2.5,
+                        itemCount: 5,
+                        itemSize: 25.0,
+                        itemBuilder: (context, _) => const Icon(
+                              Icons.star,
+                              color: Colors.redAccent,
+                            )),
                     SizedBox(height: 10),
                     Divider(color: Colors.black, height: 5),
                   ]),

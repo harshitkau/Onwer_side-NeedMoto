@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:onwer/screen/drawer_Screen/profile_page.dart';
 import 'package:onwer/screen/drawer_Screen/vehicle_history.dart';
 
+import 'add_vehicle.dart';
+import 'drawer_Screen/gps.dart';
 import 'drawer_Screen/notification.dart';
 
 class SideDrawer extends StatelessWidget {
@@ -45,7 +47,10 @@ class SideDrawer extends StatelessWidget {
             ),
             SizedBox(height: 25),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddVehicle()));
+              },
               child: Text(
                 "Add Vehicle",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -90,7 +95,10 @@ class SideDrawer extends StatelessWidget {
             ),
             SizedBox(height: 25),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Gps()));
+              },
               child: Text(
                 "Buy GPS",
                 style: TextStyle(color: Colors.grey, fontSize: 20),

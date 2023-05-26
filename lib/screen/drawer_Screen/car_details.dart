@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onwer/object/bottomNavigationBar.dart';
 import 'package:onwer/screen/drawer_Screen/customer_details.dart';
+import 'package:onwer/screen/received_vehicle/track_vehicle.dart';
 
 class CarDetails extends StatelessWidget {
   const CarDetails({super.key});
@@ -28,26 +29,32 @@ class CarDetails extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Ride 5",
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 6, 21, 152),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "3000 KM",
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 6, 21, 152),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TrackVehicle()));
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Ride 5",
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 6, 21, 152),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "3000 KM",
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 6, 21, 152),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
           ),
           Divider(

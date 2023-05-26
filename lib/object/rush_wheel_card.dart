@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:onwer/screen/drawer_Screen/car_details.dart';
 
 class RushWheel extends StatefulWidget {
   const RushWheel({super.key});
@@ -190,11 +191,15 @@ class _RushWheelState extends State<RushWheel> {
                         ],
                       )
                     : Container(),
-                Row(
-                  children: [
-                    Text("View more details",
-                        style: TextStyle(color: Colors.red, fontSize: 12)),
-                  ],
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => CarDetails())));
+                  },
+                  child: Text("View more details",
+                      style: TextStyle(color: Colors.red, fontSize: 12)),
                 ),
               ],
             ),

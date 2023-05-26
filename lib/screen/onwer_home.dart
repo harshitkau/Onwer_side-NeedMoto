@@ -7,9 +7,9 @@ import 'package:onwer/screen/add_vehicle.dart';
 import 'nav_drawer.dart';
 
 class OwnerHome extends StatefulWidget {
-  OwnerHome({super.key, required this.name, required this.phoneNumber});
-  String name;
-  String phoneNumber;
+  // OwnerHome({super.key, required this.name, required this.phoneNumber});
+  // String name;
+  // String phoneNumber;
 
   @override
   State<OwnerHome> createState() => _OwnerHomeState();
@@ -72,14 +72,16 @@ class _OwnerHomeState extends State<OwnerHome> {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    widget.name,
+                    // widget.name,
+                    "Kiran Kumar",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
                   Text(
-                    "+91 ${widget.phoneNumber}",
+                    // "+91 ${widget.phoneNumber}",
+                    "+91 9949494949",
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,

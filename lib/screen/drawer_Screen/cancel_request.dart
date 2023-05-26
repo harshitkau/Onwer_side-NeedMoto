@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:onwer/screen/onwer_home.dart';
 
 class CancelRequest extends StatefulWidget {
   const CancelRequest({super.key});
@@ -138,8 +139,8 @@ class _CancelRequestState extends State<CancelRequest> {
             )),
             backgroundColor: MaterialStateProperty.all(Colors.orange)),
         onPressed: () {
-          // Navigator.push(context,
-          //     MaterialPageRoute(builder: (context) => CustomerAccept()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => OwnerHome()));
         },
         child: Center(
           child: Text(

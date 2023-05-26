@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:onwer/object/textfield.dart';
 import 'package:onwer/screen/details.dart';
+import 'package:onwer/screen/onwer_home.dart';
 import 'package:onwer/screen/photos_upload.dart';
 import 'package:onwer/screen/tax_file_upload.dart';
 
@@ -40,9 +41,14 @@ class _AddVehicleState extends State<AddVehicle> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 1,
-        leading: Icon(
-          CupertinoIcons.back,
-          color: Colors.black,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            CupertinoIcons.back,
+            color: Colors.black,
+          ),
         ),
         title: Text(
           "VEHICLE DETAILS",
@@ -68,7 +74,7 @@ class _AddVehicleState extends State<AddVehicle> {
                   content: Column(
                     children: [
                       DetailsPage(),
-                      // NextButton(0),
+                      NextButton(0),
                     ],
                   ),
                   isActive: _currentStep > 0,
@@ -134,7 +140,13 @@ class _AddVehicleState extends State<AddVehicle> {
                           middleText:
                               "You have uploaded all documents successfully. Verification will be done by Rush wheels within 24 hours.",
                           confirm: ElevatedButton(
-                              onPressed: () {}, child: Text('Ok')));
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => OwnerHome()));
+                              },
+                              child: Text('Ok')));
                     },
                     child: Center(
                       child: Text(
