@@ -339,7 +339,7 @@ class _TrackVehicleState extends State<TrackVehicle> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 

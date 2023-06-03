@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 class TextInputField extends StatelessWidget {
   final TextEditingController controller;
   final String myLabelText;
+  bool obscuretext = false;
   TextInputField({
     Key? key,
+    this.obscuretext = false,
     required this.controller,
     required this.myLabelText,
   }) : super(key: key);
@@ -12,6 +14,7 @@ class TextInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: obscuretext,
       // focusNode: FocusScope.of(context).requestFocus(myFocusNode),
       controller: controller,
       decoration: InputDecoration(

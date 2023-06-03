@@ -52,7 +52,7 @@ class _CustomerAcceptState extends State<CustomerAccept> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 

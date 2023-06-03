@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
+import 'package:onwer/screen/drawer_Screen/offers.dart';
 import 'package:onwer/screen/drawer_Screen/profile_page.dart';
+import 'package:onwer/screen/drawer_Screen/refer_and_earn.dart';
 import 'package:onwer/screen/drawer_Screen/vehicle_history.dart';
 
 import 'add_vehicle.dart';
 import 'drawer_Screen/gps.dart';
 import 'drawer_Screen/notification.dart';
+import 'drawer_Screen/rate_us.dart';
+import 'drawer_Screen/settings.dart';
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({super.key});
@@ -87,7 +91,10 @@ class SideDrawer extends StatelessWidget {
             ),
             SizedBox(height: 25),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Settings()));
+              },
               child: Text(
                 "Settings",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -114,7 +121,10 @@ class SideDrawer extends StatelessWidget {
             ),
             SizedBox(height: 25),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ReferAndEarn()));
+              },
               child: Text(
                 "Refer and earn",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -122,7 +132,10 @@ class SideDrawer extends StatelessWidget {
             ),
             SizedBox(height: 25),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Offers()));
+              },
               child: Text(
                 "Offers",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -146,7 +159,10 @@ class SideDrawer extends StatelessWidget {
             ),
             SizedBox(height: 25),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => RateUs()));
+              },
               child: Text(
                 "Rate Us",
                 style: TextStyle(color: Colors.grey, fontSize: 20),

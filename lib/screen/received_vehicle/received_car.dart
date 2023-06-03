@@ -149,7 +149,7 @@ class _ReceivedCarState extends State<ReceivedCar> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 

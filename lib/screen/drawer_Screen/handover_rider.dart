@@ -214,7 +214,7 @@ class _HandoverRiderState extends State<HandoverRider> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),/
     );
   }
 

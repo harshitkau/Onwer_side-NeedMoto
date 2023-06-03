@@ -95,7 +95,7 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 

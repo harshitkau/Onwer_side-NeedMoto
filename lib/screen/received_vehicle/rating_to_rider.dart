@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:onwer/object/bottomNavigationBar.dart';
 import 'package:onwer/object/textfield.dart';
+import 'package:onwer/screen/received_vehicle/rating_congo.dart';
 
 class RatingToRider extends StatefulWidget {
   const RatingToRider({super.key});
@@ -115,7 +116,7 @@ class _RatingToRiderState extends State<RatingToRider> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 
@@ -133,7 +134,7 @@ class _RatingToRiderState extends State<RatingToRider> {
                 MaterialStateProperty.all(Color.fromARGB(255, 0, 15, 112))),
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RatingToRider()));
+              MaterialPageRoute(builder: (context) => RatingCongratulation()));
         },
         child: Center(
           child: Text(

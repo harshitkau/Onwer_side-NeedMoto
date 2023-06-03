@@ -75,7 +75,7 @@ class CarDetails extends StatelessWidget {
           _vehicleCard(context),
         ],
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 

@@ -40,7 +40,7 @@ class VehicleHistroty extends StatelessWidget {
           _addButton(context),
         ],
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 

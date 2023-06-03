@@ -106,7 +106,7 @@ class _OwnerHomeState extends State<OwnerHome> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomTab(),
+      // bottomNavigationBar: BottomTab(),
     );
   }
 
