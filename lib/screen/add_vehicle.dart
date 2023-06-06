@@ -91,22 +91,21 @@ class _AddVehicleState extends State<AddVehicle> {
                     ],
                   ),
                   isActive: _currentStep > 1,
-                  state: _currentStep > 1
-                      ? StepState.complete
-                      : StepState.disabled,
+                  state:
+                      _currentStep > 1 ? StepState.complete : StepState.editing,
                 ),
                 Step(
                   title: Text('Photos'),
                   content: Column(
                     children: <Widget>[
                       UploadPhotos(),
+                      SizedBox(height: 40),
                       NextButton(2),
                     ],
                   ),
                   isActive: _currentStep > 2,
-                  state: _currentStep > 2
-                      ? StepState.complete
-                      : StepState.disabled,
+                  state:
+                      _currentStep > 2 ? StepState.complete : StepState.editing,
                 ),
               ],
             ),

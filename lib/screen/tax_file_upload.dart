@@ -1,56 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:get/get.dart';
 
-import '../object/uploadFile.dart';
+import '../controller/filecontroller.dart';
+import '../controller/imagecontroller.dart';
+import '../object/kycdocupload.dart';
 
-class TaxFileUpload extends StatelessWidget {
+class TaxFileUpload extends StatefulWidget {
   const TaxFileUpload({super.key});
 
+  @override
+  State<TaxFileUpload> createState() => _TaxFileUploadState();
+}
+
+class _TaxFileUploadState extends State<TaxFileUpload> {
+  final imageController = Get.put(ImageController());
+  final FileController fileController =
+      Get.put(FileController('qFm8nd1BODSFfJLEsGNFLzjbOiN2'));
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UploadDocument(
-          filename: "Vehical RC Front",
-          filetype: "IMG",
-          showexp: false,
-        ),
+        // UploadDocument(
+        //   filename: "Vehical RC Front",
+        //   filetype: "IMG",
+        //   showexp: false,
+        // ),
+        KycUploadDocumentTile(
+            fileName: 'Vehical RC Front', fileController: fileController),
         SizedBox(height: 20),
-        UploadDocument(
-          filename: "Vehical RC Back",
-          filetype: "IMG",
-          showexp: false,
-        ),
+        KycUploadDocumentTile(
+            fileName: 'Vehical RC Back', fileController: fileController),
+        // UploadDocument(
+        //   filename: "Vehical RC Back",
+        //   filetype: "IMG",
+        //   showexp: false,
+        // ),
         SizedBox(height: 20),
-        UploadDocument(
-          filename: "Vehicle insurance",
-          filetype: "PDF",
-          showexp: true,
-        ),
+        // UploadDocument(
+        //   filename: "Vehicle insurance",
+        //   filetype: "PDF",
+        //   showexp: true,
+        // ),
+        KycUploadDocumentTile(
+            fileName: 'Vehicle insurance', fileController: fileController),
         SizedBox(height: 20),
-        UploadDocument(
-          filename: "Your aadar card",
-          filetype: "IMG",
-          showexp: false,
-        ),
+        // UploadDocument(
+        //   filename: "Your aadar card",
+        //   filetype: "IMG",
+        //   showexp: false,
+        // ),
+        KycUploadDocumentTile(
+            fileName: 'Your aadar card', fileController: fileController),
         SizedBox(height: 20),
-        UploadDocument(
-          filename: "Fitness certificate",
-          filetype: "PDF",
-          showexp: true,
-        ),
+        // UploadDocument(
+        //   filename: "Fitness certificate",
+        //   filetype: "PDF",
+        //   showexp: true,
+        // ),
+        KycUploadDocumentTile(
+            fileName: 'Fitness certificate', fileController: fileController),
         SizedBox(height: 20),
-        UploadDocument(
-          filename: "Tax document",
-          filetype: "PDF",
-          showexp: true,
-        ),
+        // UploadDocument(
+        //   filename: "Tax document",
+        //   filetype: "PDF",
+        //   showexp: true,
+        // ),
+        KycUploadDocumentTile(
+            fileName: 'Tax document', fileController: fileController),
         SizedBox(height: 20),
-        UploadDocument(
-          filename: "Polution",
-          filetype: "IMG",
-          showexp: false,
-        ),
+        // UploadDocument(
+        //   filename: "Polution",
+        //   filetype: "IMG",
+        //   showexp: false,
+        // ),
+        KycUploadDocumentTile(
+            fileName: 'Polution', fileController: fileController),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),

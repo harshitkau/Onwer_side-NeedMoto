@@ -1,7 +1,28 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class UploadPhotos extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+class UploadPhotos extends StatefulWidget {
   const UploadPhotos({super.key});
+
+  @override
+  State<UploadPhotos> createState() => _UploadPhotosState();
+}
+
+class _UploadPhotosState extends State<UploadPhotos> {
+  final ImagePicker _imagePicker = ImagePicker();
+  List<File> multiImages = [];
+
+  multiImagePicker() async {
+    final List<XFile> pickedImage = await _imagePicker.pickMultiImage();
+    if (pickedImage != null) {
+      pickedImage.forEach((e) {
+        multiImages.add(File(e.path));
+      });
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,96 +34,41 @@ class UploadPhotos extends StatelessWidget {
           style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
         ),
         SizedBox(height: 10),
-        photoUp(),
-        SizedBox(height: 20),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: multiImages.length == 0
+              ? addphotos()
+              : GridView.count(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15,
+                  shrinkWrap: true,
+                  children: multiImages
+                      .map((e) => Image.file(
+                            File(e.path),
+                            fit: BoxFit.cover,
+                          ))
+                      .toList(),
+                ),
+        ),
+        multiImages.length > 0 && multiImages.length <= 9
+            ? addphotos()
+            : Container(),
       ]),
     );
   }
 
-  Widget photoUp() {
-    return Container(
-      child: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-          ],
-        ),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-          ],
-        ),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.5)),
-              height: 110,
-              width: 105,
-            ),
-          ],
-        ),
-      ]),
-    );
+  Widget addphotos() {
+    return InkWell(
+        onTap: () {
+          multiImagePicker();
+        },
+        child: Center(
+          child: Icon(
+            Icons.add_a_photo,
+            color: Colors.black12,
+            size: 100,
+          ),
+        ));
   }
 }
